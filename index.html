@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-    <div onclick="unityInstance.SendMessage('Controller', 'ReceiveFromApp', 'updateGameState')">HARRY TEST</div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -60,9 +59,9 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/WebBuilds.loader.js";
       var config = {
-        dataUrl: buildUrl + "/WebBuilds.data.unityweb",
-        frameworkUrl: buildUrl + "/WebBuilds.framework.js.unityweb",
-        codeUrl: buildUrl + "/WebBuilds.wasm.unityweb",
+        dataUrl: buildUrl + "/WebBuilds.data",
+        frameworkUrl: buildUrl + "/WebBuilds.framework.js",
+        codeUrl: buildUrl + "/WebBuilds.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Tic Tac Toe",
@@ -106,8 +105,7 @@
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
-        }).then((unityInstance) => {
-            
+              }).then((unityInstance) => {
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
                   unityInstance.SetFullscreen(1);
